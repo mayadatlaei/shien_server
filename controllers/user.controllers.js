@@ -9,6 +9,8 @@ const createUser = async (req, res) => {
             phone: phone,
             password: password
         })
+        console.log("data", user);
+        
         res.status(200).json({
             success: true,
             message: "user created",
