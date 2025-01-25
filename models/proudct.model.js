@@ -14,6 +14,7 @@ const proudactschema = new Schema({
     image: {
         type: String,
     },
+    type: { type: String, }
 
 })
 
