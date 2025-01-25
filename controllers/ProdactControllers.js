@@ -4,7 +4,7 @@ const createProdact = async (req, res) => {
     const { name, price, image } = req.body
     try {
         const prodact = await PRODACT_MODEL.create({
-            name:name,
+            name: name,
             price,
             image
         })
@@ -23,13 +23,12 @@ const createProdact = async (req, res) => {
 
 const findprodact = async (req, res) => {
     const { name, } = req.body
+    const search = {}
+    name && (search.name = name)
     try {
-        const prodacts = await PRODACT_MODEL.find({
-            name,
-        })
+        const prodacts = await PRODACT_MODEL.find(search)
         res.status(200).json({
             success: true,
-            message: "prodact created",
             data: prodacts,
         })
     }
