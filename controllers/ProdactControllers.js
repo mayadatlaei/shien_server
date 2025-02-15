@@ -1,12 +1,13 @@
 const PRODACT_MODEL = require("../models/proudct.model")
 
 const createProdact = async (req, res) => {
-    const { name, price, image } = req.body
+    const { name, price, image , about} = req.body
     try {
         const prodact = await PRODACT_MODEL.create({
             name: name,
             price,
-            image
+            image,
+            about
         })
         res.status(200).json({
             success: true,

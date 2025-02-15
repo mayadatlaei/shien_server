@@ -10,7 +10,7 @@ const createUser = async (req, res) => {
             password: password
         })
         console.log("data", user);
-        
+
         res.status(200).json({
             success: true,
             message: "user created",
@@ -70,13 +70,23 @@ const deleteUser = async (req, res) => {
 
 const LogIn = async (req, res) => {
     const { phone, password } = req.body
+
+    if (!phone || !password) {
+        return res.status(403).json({ success: false, message: "missing required inputs!" })
+    }
+
     try {
         const users = await USER_MODEL.findOne({
             phone,
             password
         })
+
+        if (!users) {
+            return res.status(401).json({ success: false, message: "unAthoraized" })
+        }
+
         res.status(200).json({
-            success:users? true:false,
+            success: users ? true : false,
             data: users,
         })
     }
