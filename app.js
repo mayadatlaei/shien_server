@@ -1,13 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Routes = require("./routes/routes");
+const cors = require("cors")
 
 
 
 const app = express();
 app.use(express.json());
+app.use("/",Routes)
+app.use(cors())
 // app.use(cors());
 // app.use('/' , Routes)
+console.log('test');
+
 
 const mongooseURL =
   "mongodb+srv://mayada:mayada123@cluster0.rl44i.mongodb.net/";
@@ -91,6 +96,5 @@ app.post("/sum", (req, res) => {
 
 
 
-app.use("/",Routes)
 
 module.exports = app;

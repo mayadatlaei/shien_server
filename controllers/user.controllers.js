@@ -70,7 +70,9 @@ const deleteUser = async (req, res) => {
 
 const LogIn = async (req, res) => {
     const { phone, password } = req.body
-
+    console.log("phone", phone);
+    console.log("password", password);
+    
     if (!phone || !password) {
         return res.status(403).json({ success: false, message: "missing required inputs!" })
     }
@@ -96,6 +98,7 @@ const LogIn = async (req, res) => {
             error: error.massage
         })
     }
+    
 }
 
 const UpdetUser = async (req, res) => {
