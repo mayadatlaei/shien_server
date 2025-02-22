@@ -7,7 +7,7 @@ const cors = require("cors")
 
 const app = express();
 app.use(express.json());
-app.use("/",Routes)
+app.use("/", Routes)
 app.use(cors())
 // app.use(cors());
 // app.use('/' , Routes)
@@ -29,6 +29,10 @@ app.get("/getBtata", (req, res) => {
     price: "5$",
   });
 });
+
+app.get("/isLive", (req, res) => {
+  res.status(200).json({ live: true })
+})
 
 app.post("/user", (req, res) => {
   console.log(req.body);
