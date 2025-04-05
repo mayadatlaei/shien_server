@@ -1,7 +1,7 @@
 const PRODACT_MODEL = require("../models/proudct.model")
 
 const createProdact = async (req, res) => {
-    const { name, price, image , about} = req.body
+    const { name, price, image, about } = req.body
     try {
         const prodact = await PRODACT_MODEL.create({
             name: name,
@@ -18,6 +18,22 @@ const createProdact = async (req, res) => {
         res.status(400).json({
             success: false,
             error: error.message
+        })
+    }
+}
+
+const findAllprodact = async (req, res) => {
+    try {
+        const prodacts = await PRODACT_MODEL.find({})
+        res.status(200).json({
+            success: true,
+            data: prodacts,
+        })
+    }
+    catch (error) {
+        res.status(400).json({
+            success: false,
+            error: error.massage
         })
     }
 }
@@ -65,5 +81,6 @@ const deleteprodact = async (req, res) => {
 module.exports = {
     createProdact,
     findprodact,
-    deleteprodact
+    deleteprodact,
+    findAllprodact,
 }
