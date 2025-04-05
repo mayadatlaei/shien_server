@@ -15,7 +15,8 @@ const proudactschema = new Schema({
         type: String,
     },
     type: { type: String, },
-    about: { type: String, }
+    about: { type: String, },
+    writer: { type: String, }
 
 })
 
