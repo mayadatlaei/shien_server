@@ -33,6 +33,9 @@ app.get("/getBtata", (req, res) => {
 app.get("/isLive", (req, res) => {
   res.status(200).json({ live: true })
 })
+app.get("/", (req, res) => {
+  res.status(200).json({ live: true })
+})
 
 app.post("/user", (req, res) => {
   console.log(req.body);

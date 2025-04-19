@@ -12,7 +12,10 @@ const collictoinschema = new Schema({
         type: String,
     },
     ganres: { type: [String], },
-    about: { type: String, }
+    about: { type: String, },
+    writerName:{
+        type: String, 
+    }
 })
 
 const COLLICTOIN_MODEL = model("colliction", collictoinschema);

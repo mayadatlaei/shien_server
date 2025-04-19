@@ -23,7 +23,7 @@ const createwriter = async (req, res) => {
 
 const findAllwriter = async (req, res) => {
     try {
-        const writer = await WRITER_MODEL.find({})
+        const writer = await WRITER_MODEL.find(req.body)
         res.status(200).json({
             success: true,
             data: writer,
